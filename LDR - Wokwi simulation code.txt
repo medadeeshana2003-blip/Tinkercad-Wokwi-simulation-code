@@ -1,0 +1,22 @@
+int ldrPin = 34;      
+int ledPin = 26;       
+int ldrValue = 0;   
+int threshold = 1000;  
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  ldrValue = analogRead(ldrPin);  
+  Serial.println(ldrValue);
+
+  if (ldrValue < threshold) {     
+    digitalWrite(ledPin, HIGH);   
+  } else {
+    digitalWrite(ledPin, LOW);    
+  }
+
+  delay(500);                     
+}
